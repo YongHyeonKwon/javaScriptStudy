@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #upper{
+            height: 400px;
+            background-color: aquamarine;
+        }
+
+        img{
+            position: relative;
+            height: 300px;
+        }
+
+        #main{
+            height: 400px;
+            background-color: yellow;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="upper"></div>
+    <div id="main">
+        <h1 >앙~ 다인씨 개못하뉑~</h1>
+        <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3845274%2F38452748315.jpg&type=f372_372">
+    </div>
+
+    <script src="./code.jquery.com_jquery-3.7.1.min.js"></script>
+
+    <script>
+        /*
+        1. 제이쿼리 가져오기
+        2. 내가 방향키를 클릭할 때마다
+        3. 캐릭터가 그 방향으로 움직이게
+
+        위치속성 비활성화
+        - static (기본값)
+
+        위치속성 활성화 (이동시킬 수 있는 상태)
+        - static(기본값)
+        - relative(본인 위치 기준으로 이동)
+        - absolute (position이 static이 아닌 부모,
+                    만약 부모가 static이 아니거나, 부모가 없다면 
+                    body 태그를 기준으로 이동)
+        - fixed
+
+        어떻게 이동하지?
+        1. 위치속성 활성화를 켜주기 
+        2. top / left / bottom / right 스타일 속성으로 이동시키기 
+
+        */
+        let num1 = 10;
+        let num2 = 10;
+
+
+
+        $('body').on('keydown',function(event){
+            // event라는 매개변수 안에서 keyCode 값만 가져오기 
+            console.log(event.keyCode);
+            if(event.keyCode==39) {
+                num1+=25
+                // $('img').animate({'left': num1})
+                $('img').css('left',`${num1}px`)
+            }else if(event.keyCode==37) {
+                num1-=25
+                $('img').css('left',`${num1}px`)
+            }else if(event.keyCode==40) {
+                num2+=25
+                $('img').css('top',`${num2}px`)
+            }else if(event.keyCode==38) {
+                num2-=25
+                $('img').css('top',`${num2}px`)
+            }
+
+            })
+    </script>
+</body>
+</html>

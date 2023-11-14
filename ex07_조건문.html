@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 조건문 : if, if~else, elseif, switch~case
+
+        // let ischanged = confirm("비밀번호를 변경하쇼?")
+
+        // 만약, 사용자가 '확인'을 눌렀으면 ~~
+        // if(ischanged == true) {
+        //     alert("변경완료!")
+        // }
+
+       let java = prompt("Java 점수를 입력해라!");
+       let py =  prompt("Python 점수를 입력해라!");
+       let r = prompt("R 점수를 입력해라!");
+
+       java = Number(java);
+       py = Number(py);
+       r = Number(r);
+
+       let sum = (java + py + r)/3
+
+       let grade = ''
+       
+
+       if(sum >= 90) {
+        alert(`당신의 평균은 ${sum}이고 학점은 A입니다.`)
+       }else if(sum >= 80) {
+        alert(`당신의 평균은 ${sum}이고 학점은 B입니다.`)
+       }else if(sum >= 70) {
+        alert(`당신의 평균은 ${sum}이고 학점은 C입니다.`)
+       }else {
+        alert(`당신의 평균은 ${sum}이고 학점은 F입니다.`)
+       }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id = "msg">DOM 활용해보기</h1>
+    <button id = "btn-h1">h1태그내용변경</button>
+    <button id = "btn-a">a태그생성</button>
+    <button id = "btn-ul">ul태그생성</button>
+
+    <div id="area"></div>
+
+    <script>
+        // 1. h1내용변경 버튼을 클릭하면 기존 h1태그의 내용이 "내용 잘 바뀌었다!"로 바뀌게 하기
+        // 2. a태그생성 버튼을 클릭하면 div에 [스마트인재개발원 사이트]로 이동하는 a태그 생성 
+        // 3. ul태그생성 버튼을 클릭하면 html,css,javascript를 담는 ul 리스트를 생성
+
+        // * 내가 이용하고 싶은 요소들을 자바스크립트 영역으로 가져오기 
+        // 그리고 그 요소들이 클릭당했을 때 보여줄 이벤트를 달아주기 
+        // 다 한 사람은 웹페이지 화면 캡쳐해서 단톡방에 보내주기 
+
+       //1. 
+       let msg = document.getElementById("msg");
+       let btn_h1 = document.getElementById("btn-h1")
+       let btn_a = document.getElementById("btn-a")
+       let btn_ul = document.getElementById("btn-ul")
+       let area = document.getElementById("area")
+       
+       btn_h1.addEventListener("click", function() {
+           
+            msg.textContent = "내용 잘 바꼈다~!"
+        })
+
+        // 2. 
+        btn_a.addEventListener("click", function() {
+           
+             area.innerHTML += '<a href="https://www.smhrd.or.kr">클릭해라~</a> <br>'
+            
+       })
+
+       // 3. 
+       btn_ul.addEventListener("click", function() {
+           
+           area.innerHTML += "<ul>"
+           area.innerHTML += "<li>HTML</li>"
+           area.innerHTML += "<li>CSS</li>"
+           area.innerHTML += "<li>JS</li>"
+           area.innerHTML += "<ul>"
+           area.innerHTML += "<br>"
+
+
+     })
+
+    </script>
+</body>
+</html>

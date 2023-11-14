@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="msg">오늘은 문서객체모델에 대해서 배웠다!</p>
+
+    <script>
+        let msg = document.getElementById("msg");
+        console.log("p태그", msg);
+
+        // HTML 태그와 같이 내용을 적용할 때 : innerHTML
+        // 텍스트 내용만 적용할 때 : textContent
+
+        // p태그의 전체내용 접근 
+        console.log(msg.innerHTML);
+
+        // p태그의 내용 변경 
+        msg.innerHTML = "안녕하세요~ 이걸로 바꿀래여~"
+        msg.innerHTML += "<span>받고 태그 하나 더~</span>"
+
+        // p태그의 텍스트값 접근
+        console.log(msg.textContent);
+        
+        // p태그의 텍스트값 변경 
+        msg.textContent = "텍스트값 바꿔보기"
+        msg.textContent += "<span>받고 태그 하나 더~</span>"
+
+        // dom에서 시험이 나옴.
+        // 이미지 경로, 
+    </script>
+</body>
+</html>

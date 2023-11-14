@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="h1Tag">오늘 비온대~</h1>
+    <br>
+    <button id="btn">스타일 변경</button>
+    
+    <script>
+        let h1Tag = document.getElementById("h1Tag")
+
+        document.getElementById("btn").addEventListener("click", function() {
+            console.log(h1Tag.style);
+            console.log(h1Tag.style.color);
+            h1Tag.style.color = "blue";
+            h1Tag.style.backgroundColor = "red";
+        })
+
+    </script>
+</body>
+</html>

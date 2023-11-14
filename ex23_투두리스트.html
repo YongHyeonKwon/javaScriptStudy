@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<style>
+@font-face {
+    font-family: 'GoryeongStrawberry';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/GoryeongStrawberry.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    font-family: 'IM_Hyemin-Bold';
+}
+hr {
+    width: 465px;
+}
+
+.main {
+    margin-top: 60px;
+}
+.todo {
+    font-size: 25px;
+    width: 200px;
+}
+
+.form-control {
+    width: 400px !important;
+}
+
+body {
+    margin: 20px;
+}
+
+.task {
+    margin-top: 5px;
+    padding-bottom: 15px;
+
+}
+
+.task-done {
+    background-color: rgba(74, 88, 132, 0.373)
+}
+
+.task-board {
+    width: 465px;
+}
+
+h1 {
+    font-family: 'GoryeongStrawberry';
+    font-size: 55px;
+    color: rgb(251, 171, 184);
+}
+
+</style>
+</head>
+<body>
+    
+    <div style="width:465px; margin: 0 auto;">
+        <div class="main">
+            <h1>용현의 To-do List</h1><br>
+            <div class="input-area">
+                <div class="row g-2">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" id="task-input">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-outline-warning mb-3" id="add-button">추가</button>
+                    </div>
+                </div>
+            </div>
+            <hr><br>
+        </div>
+
+
+        <div id="task-board">
+            <!--<div class="row g-3 task">
+                <div class="col todo">
+                    <span class="todo">요리하기</span>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-success">완료</button>
+                    <button class="btn btn-outline-danger">삭제</button>
+                </div>
+            </div>
+
+            <div class="row g-3 task task-done">
+                <div class="col todo">
+                    <span class="todo">청소하기</span>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-success">완료</button>
+                    <button class="btn btn-ou=tline-danger">삭제</button>
+                </div> 
+            </div> -->
+        </div>
+
+    <script>
+        /*
+        1. 유저가 할 일을 입력한다.
+        2. 추가 버튼을 누르면 아래에 할 일이 추가된다 
+        3. 추가된 목록을 웹페이지에 출력
+        4. 완료 버튼을 누르면 할 일이 회색 배경으로 처리 
+        4-1. 완료 버튼을 다시 누르면 원래 상태로 돌아가기 
+        5. 삭제 버튼 누르면 할일 삭제
+        */
+       
+       // 사용자가 input태그에 적어주는 새 할일 
+       let taskInput = document.getElementById("task-input")
+       // 할 일 추가 버튼
+       let addButton = document.getElementById("add-button")
+       // 유저가 입력한 할 일을 저장하는 배열
+       let taskList = [];
+       // 할일을 담아주는 큰 div
+       let taskBoard= document.getElementById("task-board")
+       
+       // 웹 페이지에 Task를 다시 출력하는 함수를 호출
+        const render = function() {
+         let resultHTML = "";
+
+            // 반복문으로 배열을 반복해서 resultHTML에 넣어주기 
+            for (let i=0; i<taskList.length; i++) {
+                // 체크 상태에 따른 task 출력
+                // 해당 방 번호의 isComplete : true --> class- "task task-done"출력
+                // 해당 방 번호의 isComplete : false --> class- "task"출력
+                if(taskList[i].isComplete == true) {
+                resultHTML += `
+                <div class="row g-3 task task-done">
+                 <div class="col todo">
+                  <span class="todo">${taskList[i].taskContent}</span>
+                </div>
+                <div class="col-auto">
+                 <button class="btn btn-outline-success" onclick="toggleCheck('${i}')">완료</button>
+                 <button class="btn btn-ou=tline-danger" onclick="deleteTask('${i}')">삭제</button>
+                 </div>
+                </div>
+                `
+            
+            }else {
+                resultHTML += `
+                <div class="row g-3 task">
+                 <div class="col todo">
+                  <span class="todo">${taskList[i].taskContent}</span>
+                </div>
+                <div class="col-auto">
+                 <button class="btn btn-outline-success" onclick="toggleCheck('${i}')">완료</button>
+                 <button class="btn btn-ou=tline-danger" onclick="deleteTask('${i}')">삭제</button>
+                 </div>
+                </div>
+                `
+            }
+
+            }
+
+            // 할일을 담아주는 큰 div의 innerHTML에 resultHTML을 대입해주기 
+            taskBoard.innerHTML = resultHTML;
+        }
+
+        // 새 할일을 목록에 추가해주는 함수
+        const addTask = function() {
+            // let task = taskInput.value;
+            let task = {
+                "taskContent" : taskInput.value,
+                "isComplete" : false
+            }
+
+            // 배열에 할 일 추가 
+            taskList.push(task);
+            // console.log(taskList);
+
+            // input태그 입력값 초기화
+            taskInput.value="";
+            taskInput.focus();
+
+            render();
+
+            
+        }
+        
+        // 내가 누른 버튼에 해당하는 완료 여부를 바꿔주는 함수 
+        const toggleCheck = function(idx) {
+            console.log(`선택한 버튼의 배열 방 번호`,idx);
+
+            // 배열 방 번호를 활용해서 특정한 할 일에 대한 완료체크 상태를 변경
+            // taskList[idx].isComplete = true;
+
+            if(taskList[idx].isComplete == true) {
+                taskList[idx].isComplete = false;
+            }else {
+                taskList[idx].isComplete = true;
+            }
+
+            // 체크 상태가 바뀐 정보를 다시 웹페이지에 출력(갱신,업데이트)
+            render()
+
+        }
+        
+        const deleteTask = function(idx) {
+            taskList.splice(idx,1);
+            render();
+        }
+
+        addButton.addEventListener("click", addTask) 
+
+
+    </script>
+
+</body>
+</html>

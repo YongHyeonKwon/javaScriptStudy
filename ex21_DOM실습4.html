@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        img{
+            width:500px;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <input type="text" id="name">
+
+    <button id = "btn">☆변경☆</button>
+    <br>
+    <img id="img" src="https://blog.kakaocdn.net/dn/Wy1cc/btq97nEFnVG/ke7m2EqZVuhjZosiW8q2Z1/img.jpg">
+
+
+    <script>
+        // 사진1 (강아지)
+        let url1= "https://www.fitpetmall.com/wp-content/uploads/2023/02/CK_tc02730000546-edited-scaled.jpg"
+        // 사진2 (고양이)
+        let url2= "https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg"
+
+        // 이미지 속성(src)에 접근하기 
+        let img = document.getElementById("img");
+        let btn = document.getElementById("btn")
+        let input = document.getElementById("name")
+
+        console.log(img.src);
+        img.src="https://blog.kakaocdn.net/dn/Wy1cc/btq97nEFnVG/ke7m2EqZVuhjZosiW8q2Z1/img.jpg"
+
+        
+        btn.addEventListener("click", function() {
+            input.focus()
+            console.log(input.value);
+            if(input.value == "강아지") {
+                img.src = url1
+                input.value="";
+            }else if(input.value == "고양이") {
+                img.src = url2
+                input.value="";
+            }else {
+                alert("잘못입력!")
+            }
+        })
+
+        // (1)
+        // 변경! 버튼을 눌렀을 때
+        // 사용자가 input태그에 입력한 값을 감지 
+        // 그 값을 콘솔창에 띄워보기 
+        
+        // (2)
+        // 조건에 맞게 사진을 교체 
+        // 만약 사용자가 input태그에 '고양이'를 입력했을 때
+        // 기존 사진을 고양이 사진으로 변경 
+        // 고등어도 동일하게 적용 
+        // 그 외의 텍스트를 입력하면 alert - 잘못입력했어! 
+
+        // (3)
+        // 사용자의 input태그를 비워주기 
+    </script>
+</body>
+</html>

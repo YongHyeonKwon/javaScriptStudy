@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 1)
+    // 자신이 좋아하는 5가지를 담은 배열을 생성 (이름 like)
+    // 출력 (제가 좋아하는 것은~~~)
+    let like = ["자바", "파이썬", "자스", "db", "크롤링"];
+    console.log("제가 좋아하는 것은~~~" , like);
+    
+
+    // 2) 배열의 마지막 요소 제거 
+    // 출력 (제가 좋아하는 것은~~~)
+    like.pop()
+    // like.splice(4,1);
+    console.log("제가 좋아하는 것은~~~" , like);
+
+    // 3)
+    // 배열의 마지막 요소에 "코딩" 추가 
+    // 출력 (제가 좋아하는 것은~~~)
+    like.push("코딩");
+    console.log("제가 좋아하는 것은~~~" , like);
+
+    // 4) 
+    // 배열 안에 '코딩'이라는 데이터가 존재하는지 +인덱스 번호 출력
+    // "코딩" 있니? true 00번째 인덱스에 있어요 --> 출력 
+    console.log(`코딩 있니? ${like.includes("코딩")} ${like.indexOf("코딩")}번째 인덱스에 있어요!`);
+
+    // 5)
+    // 5-1)배열 속 3,4번 인덱스 데이터를 새로운 배열로 만들기 (변수 unit -배열)
+    // 5-2) 출력 : 새로운 배열은 ~~~입니다 
+    let unit = like.slice(3,5);
+    console.log("새로운 배열은 ",unit, "입니다!");
+
+    // 6-1) 기존 배열 속 1번부터 시작해서 3개의 데이터를 제거 
+    // 6-2) 그 안을 '프로젝트하기' 대체
+    like.splice(1,3,'프로젝트하기');
+
+    // 7) 최종 배열의 길이를 출력
+    // 내가 좋아하는 것의 개수는 OO개 입니다.
+    console.log("내가 좋아하는 것의 개수는", unit.length, "개 입니다.");
+
+    // 8) 번외 
+    // 배열 내의 전체 데이터를 출력 - for문
+    for(let i=0; i<like.length; i++) {
+        console.log(like[i])
+    }
+
+    </script>
+</body>
+</html>

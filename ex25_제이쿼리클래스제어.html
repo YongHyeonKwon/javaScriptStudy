@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .user1 {
+            color: red;
+        }
+
+        .user2 {
+            color:blue
+        }
+    </style>
+</head>
+<body>
+    
+    <h1 class = "user1">시고르자브종</h1>
+
+    <div id="div1">
+        <div id="div2">안녕 나는 div2야~</div>
+        <div id="div3">안녕 나는 div3야~</div>
+        <div id="div4">안녕 나는 div4야~</div>
+    </div>
+
+    <script src="./code.jquery.com_jquery-3.7.1.min.js"></script>
+
+    <script>
+
+        // 요소 클래스 제어 
+        // 1. 요소를 가져와서 기존에 들어있던 클래스를 지우는 법 
+        $('h1').removeClass('user1')
+        // 2. 요소를 가져와서 새로운 클래스를 추가하는 법
+        $('h1').addClass('user2')
+
+
+        // 요소의 위치 기반 제어 
+        // 1. 자식요소 가져오는 방법 
+        console.log($('#div1').children('div'));
+        // #div1>*        children()
+        // #div1 > div    children('div')
+
+        // 2. 부모요소 가져오는 방법 
+        console.log($('#div2').parents('div'));
+
+        // 3. 이전 요소들을 가져오는 방법 
+        console.log($('#div4').prevAll());
+
+        // 4. 다음 요소들을 가져오는 방법 
+        console.log($('#div2').nextAll());
+
+    </script>
+</body>
+</html>

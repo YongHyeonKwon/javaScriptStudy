@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            height: 500px;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="movie-btn">요청!</button>
+    <div id="movie-area">
+
+    </div>
+    <script src="./code.jquery.com_jquery-3.7.1.min.js"></script>
+
+    <script>
+
+        let movieUrl="http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20230801"
+
+        let btn = document.getElementById('movie-btn');
+        let movieArea = document.getElementById('movie-area');
+
+        const getList = function(){
+            $.ajax({
+                url :movieUrl,
+                success:function(data){
+                    console.log("성공!");
+                    // console.log(data.boxOfficeResult.dailyBoxOfficeList);
+                    let movieList = data.boxOfficeResult.dailyBoxOfficeList
+
+                    // 영화순위(rank), 영화명(movieNm), 개봉일(openDt)을 웹페이지에 출력
+                    render(movieList);
+
+                },
+                error:function(){
+                    console.log("에러! ㅜ");
+                }
+            })
+        }
+        
+        const render = function(movieList){
+            let resultHTML = `
+            <table>
+            <tr>
+                <td>순위</td>
+                <td>영화명</td>
+                <td>개봉일</td>
+            </tr>
+       
+            `;
+
+            for(let i=0; i<movieList.length; i++) {
+                resultHTML += `
+                <tr>
+                    <td>${movieList[i].rank}</td>
+                    <td>${movieList[i].movieNm}</td>
+                    <td>${movieList[i].openDt}</td>
+                 </tr>
+
+                `
+            }
+            
+            resultHTML += `</table>`
+
+            // 반복해서 데이터를 담아준 후에 
+
+            movieArea.innerHTML = resultHTML;
+            // 웹페이지에 출력을 할 것.
+        }
+
+        btn.addEventListener("click", getList)
+
+        
+        // 제이쿼리로 ajax 구현하는 방법
+        // $.ajax({
+        //         url: "요청할 서버 경로",
+        //         type: "get or post",
+        //         data: "서버에 보낼 데이터",
+        //         dataType: "응답데이터형식 (html, xml, csv, json....)",
+        //         success: function (매개변수) {
+        //             console.log("요청이 성공적으로 이루어졌을 경우");
+        //         },
+        //         error: function () {
+        //             console.log("요청이 원활하게 이루어지지 않았을 경우");
+        //         }
+        //     })
+    </script>
+</body>
+</html>

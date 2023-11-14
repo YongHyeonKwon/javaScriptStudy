@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 문제) 이모지와 숫자를 입력받은 후 피라미드 모양 출력하는 pyramid()
+        // 1. 이모지와 숫자를 입력받는다.
+        // 2. 두 입력값을 pyramid()에 전달한다.
+        // 3. 전달받은 값을 이용하여 피라미드 모양을 출력한다.
+        // + 줄바꿈 해주는 법 : document.write("<br>")
+        // ★귀여운 이모지 쓰는법 : 윈도우 +.
+
+        let emoji = prompt("이모지 입력")
+        let num = prompt("숫자 입력")
+
+        let pyramid = function(shape, row) {
+            for(let i = 0; i<row; i++) { // 행 출력
+                for(let j = 0; j<=i; j++) { // 기호 출력
+                    document.write(shape)
+                }
+                document.write("<br>")
+            }
+        }
+
+        pyramid(emoji,num)
+
+        // ex) ★, 5
+        // 결과 
+        // ★
+        // ★★
+        // ★★★
+        // ★★★★
+        // ★★★★★
+
+        
+    </script>
+</body>
+</html>

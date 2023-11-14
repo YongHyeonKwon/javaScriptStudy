@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: aquamarine;
+            height: 500px;
+
+            /* Flex : 레이아웃 배치 전용 기능
+            -  내가 움직이고 싶은, 배치하고 싶은 요소 : item
+            -  그 item들을 감싸주는 부모요소 : container
+            -  한 가지 요소는 item이자 container일 수 있다. */
+
+            /*(1) container에 flex 설정 */
+            display: flex;
+
+            /*(2) flex-direction : 배치 방향 설정 */
+            /*(2-1) row (기본값) 
+                - 메인축 : 가로
+                - 서브축 : 세로 */
+            flex-direction: row;
+
+            /*(2-2) column
+                - 메인축 : 세로
+                - 서브축 : 가로 */
+            /* flex-direction: column; */
+
+            /*(3)justify-content : 메인축 정렬 */
+            justify-content: center;
+
+            /*(4) align-items : 서브축 정렬 */
+            align-items: center;
+
+            /*(5) flex-wrap : 줄넘김 처리 */
+            /* flex-wrap: wrap; */
+        }
+
+        .item{
+            background-color: aqua;
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+
+            /* item에 작성해야 하는 요소 */
+            /* flex-basis: 15% */
+        }
+
+        #center {
+            flex-basis: 70%;
+        }
+
+        .item3 {
+            /* container일 때 */
+            /* 스위치 켜기 */
+            display: flex;
+            /* 메인축 정렬 */
+            justify-content: center;
+            /* 서브축 정렬 */
+            align-items: center;
+        }
+
+        .item3 > a{
+            margin: 10px;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            font-family: '맑은 고딕';
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item"><a>smhrd</a></div>
+        <div class="item" id = "center"></div>
+
+        <div class="item item3">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+        </div>
+    </div>
+</body>
+</html>

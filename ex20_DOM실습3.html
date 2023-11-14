@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="user-input">
+    <button id="btn-plus">출력</button> <br>
+
+    <div id="result">
+        <!-- <p>사용자의 입력값 1</p>
+        <p>사용자의 입력값 2</p> -->
+    </div>
+
+    <script>
+   // 출력 버튼을 클릭했을때, 유저가 input 태그에 입력한 값을
+    // 가져와서 input태그 아래에 있는 div에 순차적으로 출력
+        
+    // 사용자가 input 태그에 입력한 값은 .value()
+     // div에 출력할 때 이전에 입력한 값도 그대로 유지하기
+
+
+       // 유저가 입력한 값에 접근하기 위한 변수
+       let user_input = document.getElementById("user-input")
+       // 클릭이벤트를 정의하기 위한 변수
+       let sbtn_plu = document.getElementById("btn-plus")
+       // 유저가 입력한 값을 웹페이지에 출력하기 위한 변수
+       let result = document.getElementById("result")
+
+       // 출력 버튼을 클릭했을 때, 유저가 input 태그에 입력한 값을
+
+    //    const show = function() {
+    //        console.log();
+    //        let data = user_input.value;
+
+    //        result.innerHTML += "<p>"
+    //        result.innerHTML += data; 
+    //        result.innerHTML += "<p>"
+    //        user_input.value="";
+    //    }
+
+    //    btn_plus.show();
+
+
+       btn_plus.addEventListener("click", function() {
+
+           console.log("이벤트 동작");
+           let data = user_input.value;
+
+           result.innerHTML += "<p>"
+           result.innerHTML += data; 
+           result.innerHTML += "<p>"
+           user_input.value="";
+           })
+
+        
+
+    
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 id="tag">내일은 금요일~ 금요일 좋아~</h1>
+
+    <!-- 제이쿼리 사용하기 -->
+    <!-- 1. 직접 다운로드 받아서 로드하는 방법-->
+    <script src="./code.jquery.com_jquery-3.7.1.min.js"></script>
+
+    <!-- 2. CDN(Content Delivery Network)를 활용해서 로드하는 방법-->
+    <!-- integrity, crossorigin : 보안상 필요한 옵션, 수정하지 말 것-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- 절대 jquery 파일 로딩하는 script 태그 안쪽에 자바스크립트 코드 작성하지 말 것!-->
+
+    <script>
+        // 제이쿼리를 사용하기 위해서는 꼭 import 해주기 
+
+        // 요소의 태그+콘텐츠에 접근하기 (==innerHTML)
+        console.log($('h1').html());
+
+        // 요소의 콘텐츠만 접근하기 (=textContent)
+        $('h1').text()
+
+        // 요소 값 변경하기 
+        // $('h1').html('<p>어제는 수요일!</p>')
+        $('h1').text('<p>어제는 수요일!</p>')
+
+        // 요소의 스타일 변경하기 
+        // 바닐라 자스 : document.getElementByid('st').style.backgroundColor~~
+        // $('h1').css("color","green")
+        // $('h1').css("backgroundcolor","red")
+        // $('h1').css("fontSize","16px")
+
+        // 다중스타일제어 
+        // 1. 자바스크립트의 객체 형태로 스타일 적용시키기 
+        $('h1').css({
+            'color' : 'blue',
+            'fontSize' : '16px'
+        })
+        
+        // 2. 메소드 체인
+        $('h1').css('color','red').css('fontSize', '60px')
+
+        // 요소의 속성을 가져오기 
+        console.log($('h1').attr('id'));
+        // 요소의 속성을 추가하기 
+        $('h1').attr("class","item")
+        // 요소의 속성을 제거하기 
+        $('h1').removeAttr('class');
+
+        // ex21번 jquery스타일로 만들기 
+
+    </script>
+
+</body>
+</html>

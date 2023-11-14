@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <h1 id="tit">문서객체모델(DOM)</h1>
+
+ <ul>
+    <li class="item">HTML</li>
+    <li class="item">CSS</li>
+    <li class="item">JS</li>
+ </ul>
+
+ <script>
+
+    // DOM(문서객체모델) : HTML 태그를 자바스크립트에서 
+    // 사용할 수 있도록 객체로 변환 
+
+    // *HTML문서에 접근하는 방법*
+
+    // document   : 현재 HTML 문서에 
+    // .          : 접근해서 
+    // getElement : 요소를 가져올거야 
+    // Byld       : "tit"라는 id값을 가진
+    let title = document.getElementById("tit");
+    console.log(title);
+
+    // document    : 현재 HTML 문서에 
+    // .           : 접근해서 
+    // getElements : 요소를 가져올거야 
+    // ByClassName : "item"라는 id값을 가진
+    let items = document.getElementsByClassName("item")
+    console.log(items);
+ </script>
+</body>
+</html>

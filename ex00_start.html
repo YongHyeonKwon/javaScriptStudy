@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //HTML문서 위에 자바스크립트를 사용하기 위해서는 <script> 선언
+        // script태그 위치는 body끝태그 위!
+        
+        //출력문
+        // 1. document.write(): 문서(html)에 직접 작성할 때
+        // document: 현재 html문서에 
+        // .       : 접근해서 
+        // write() : 작성할거야
+        document.write("<h1>안녕하세요</h1>");
+        
+        // 2. alert(): 알림 팝업창을 실행시키는 출력문 
+        // 주의점 : 무조건 페이지가 시작될 때 가장 먼저 실행
+        alert("알림 팝업창 등장! 공부해라~")
+
+        // 3. console.log(): 콘솔창에 로그를 남길 때 사용
+        // 데이터 통신 확인, 데이터 구조, 오류 확인 등등...
+        // F12개발자 도구의 콘솔 탭에서 확인 
+        console.log("콘솔창 출력!")
+
+        
+
+        // 입력문
+        // 1.confirm(): 사용자에게 확인 or 취소를 입력받는 입력문 
+        // 리턴하는 데이터 타입이 boolean(true/false)
+        console.log(confirm("제출할거에요?"));
+        
+        // 2. prompt(): 사용자에게 직접 키보드 입력값을 받는 입력문 
+        // 입력받은 값을 stirng형태로 반환
+        console.log(prompt("이름을 입력해라~"));
+        console.log(prompt("핸드폰 번호를 입력해라~"));
+
+    </script>
+</body>
+</html>

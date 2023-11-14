@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 배열 : 여러 개의 데이터들을 하나의 공간에 저장하고 관리하는 자료형
+        // - 길이가 가변적이다
+        // - 자료형에 제한이 없다
+
+        // 배열 선언하기
+        // java --> 자료형[] 변수명 = new 자료형[공간크기];
+        // js --> let 변수명 = [];
+        // js --> let 변수명 = new Array();
+
+        let array = []; // 비어있는 배열 생성
+        let numberList = [1,2,3,4,5] // 5개의 데이터를 가진 배열 생성
+
+        // 배열에 데이터 추가
+        array[0] = 1;
+        array[1] = 2;
+        array[2] = "hello";
+        array[3] = true;
+        array[4] = ["a", "b"];
+        array[5] = {"name" : "Justin"};
+
+        console.log(array);
+
+        // push()
+        // - 배열의 마지막 위치에 데이터를 추가해주는 함수
+        // - 데이터를 추가할 때 1개 이상 추가 가능
+        array.push(3);
+        array.push(4,5,6);
+
+        //pop()
+        // - 배열의 마지막 인덱스 데이터를 삭제해주는 함수 
+        array.pop()
+
+        // 배열 데이터 수정 - 인덱스 활용
+        // ex) 0번 방 데이터를 바꾸고 싶어!
+        array[0] = 5;
+
+        // 배열 데이터에 접근 - 인덱스 활용
+        // ex) 5번 방 데이터를 가져오고 싶어!
+        console.log(array[5]);
+
+
+
+        // 배열 데이터 삭제 - splice()
+        // splice(시작인덱스, 삭제할 갯수)
+        // ex) 0번째 방 데이터부터 2개 삭제할거야 (0,1번째 방 데이터 삭제)
+        array.splice(0,2);
+
+        console.log(array);
+
+        // 배열 내에 특정 데이터가 있는지 확인 : includes()
+        // 데이터가 있다면 true, 없다면 false
+        console.log("3이라는 데이터가 있을까?", array.includes(3));
+
+        // 배열 내 찾고 싶은 데이터의 위치를 알려주는 함수 - indexOf()
+        // - 데이터가 있다면 인덱스 반환, 없다면 -1 반환
+        console.log("true의 위치를 알려줘", array.indexOf(true));
+
+        // 특정 범위에 해당하는 데이터들을 잘라내는 함수 - slice()
+        // - slice(시작인덱스, 끝인덱스)
+        // - 끝 인덱스는 미포함
+        // - 잘라낸 데이터들을 배열로 반환(기존 배열에는 영향X)
+        console.log(array.slice(0,5));
+
+        // 기존 배열에 접근해서 특정 값을 제거/대체 - splice()
+        // - splice('시작인덱스','제거할갯수', '대체할 값')
+        array.splice(0,1,2); // 0번째 방부터 1개를 제거하고 그 안에는 다시 2라는 데이터를 넣어줘
+        array.splice(0,1); // 0번째 방부터 1개를 제거해줘!
+        array.splice(0,1,3,4) // 0번째 방부터 1개를 제거하고 그 안에는 3, 4를 넣어줘
+
+        array.splice(1,0,3) // 1번째 방에서 하나도 제거하지 않고 1번째 방에 7을 끼워넣어줘
+        // 기존배열 [1,2,3,4]  -> splice(1,0,7) -> 바뀐배열[1,7,2,3,4]
+
+    </script>
+</body>
+</html>
